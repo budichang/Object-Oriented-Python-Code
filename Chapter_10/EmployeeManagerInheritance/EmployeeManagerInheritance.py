@@ -1,6 +1,3 @@
-#  Employee Manager inheritance
-#
-# Define the Employee class, which we will use as a base class
 class Employee():
     def __init__(self, name, title, ratePerHour=None):
         self.name = name
@@ -20,8 +17,6 @@ class Employee():
         pay = 52 * 5 * 8 * self.ratePerHour
         return pay
 
-
-# Define a Manager subclass that inherits from Employee
 class Manager(Employee):
     def __init__(self, name, title, salary, reportsList=None):
         self.salary = float(salary)
@@ -32,18 +27,14 @@ class Manager(Employee):
 
     def getReports(self):
         return self.reportsList
-
     def payPerYear(self, giveBonus=False):
         pay = self.salary
         if giveBonus:
             pay = pay + (.10 * self.salary)  # add a bonus of 10%
             print(self.name, 'gets a bonus for good work')
         return pay       
-
-    # Additional methods unique to Manager
     def addEmployee(self, oEmployeeToAdd):
         self.reportsList.append(oEmployeeToAdd)
-
     def removeEmployee(self, oEmployeeToRemove):
         self.reportsList.remove(oEmployeeToRemove)
 
